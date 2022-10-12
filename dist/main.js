@@ -105,7 +105,7 @@ div_sum.innerHTML = 'Test Webpack<br>';
 div_sum.innerHTML += 'sum = ' + (0,_math__WEBPACK_IMPORTED_MODULE_1__.sum)(10, 20);
 
 
-// Получение данных с JSON сервера
+// Получить тданные с JSON сервера
 const btn = document.querySelector('.btn');
 const div_jsonData = document.querySelector('.jsonData');
 
