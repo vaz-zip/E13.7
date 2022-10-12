@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aerastov/moduleE13_homework.git"
+    "url": "git+https://github.com/vaz-zip/E13.7"
   },
-  "author": "Erastov",
+  "author": "Shiryaev",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/aerastov/moduleE13_homework/issues"
+    "url": "https://github.com/vaz-zip/E13.7"
   },
-  "homepage": "https://github.com/aerastov/moduleE13_homework#readme",
+  "homepage": "https://github.com/vaz-zip/E13.7",
   "devDependencies": {
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^4.0.0",
