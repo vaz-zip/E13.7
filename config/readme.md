@@ -1,10 +1,10 @@
 ## Установка и настройка Webpack
-Необходимо установить node.js (в комплекте npm)  
+Установить node.js (в комплекте npm)  
 https://nodejs.org/en/download/  
-Проверяем версию: ```npm -v```  
-Создаем папку, в ней инициализируем проект npm:  
+Проверить версию: ```npm -v```  
+Создать папку, в ней инициализируем проект npm:  
 `npm init`  
-Далее через терминал устанавливаем webpack:  
+Через терминал устанавливаем webpack:  
 `npm install webpack webpack-cli --save-dev`  
 Для включения в сборку css установим загрузчики:  
 `npm i style-loader css-loader --save-dev`  
@@ -39,19 +39,12 @@ module.exports = {
     }
 }
 ```
-Описание конфига:  
-https://webpack.js.org/configuration/  
-
-
 
 Если в пакет `package.json` в объект `scripts` добавить строку `"build" : "webpack"`, то запускать сборку можно командой `npm run build`  
 
-Восстановить модули по данным package.json могут команды:  
+Восстановить модули по данным package.json:  
 `npm install`  
-или  
-`yarn install`  
-Установка yarn:  
-https://yarnpkg.com/getting-started/install  
+  
 
 ## Для работы DevServer необходимо собирать html файл в папке dist
 Ставим шаблонизатор:  
@@ -138,27 +131,6 @@ module.exports = {
     }
   };
 ```
-
-### Минификация файлов для mode: 'production'
-По умолчанию в production mode вебпак минифицирует код. Для этого используется TerserPlugin.  
-CSS код тоже стоит минифицировать. Для этого можно использовать плагин css-minimizer-webpack-plugin.
-Его надо будет указать в optimization.minimizer. Настройка optimization.minimizer отменяет все значения 
-по умолчанию, поэтому если определили плагин для минификации CSS, нужно указать, какой плагин будет отвечать 
-за минификацию JS.  
-Ставим `npm i terser-webpack-plugin  --save-dev`  
-Ставим `npm i css-minimizer-webpack-plugin --save-dev`  
-Прописываем константы:  
-`const TerserWebpackPlugin = require('terser-webpack-plugin');`  
-`const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");`  
-Прописываем их в plugins:  
-`new CssMinimizerPlugin(),`  
-`new TerserWebpackPlugin(),`  
-И добавим в module.exports модуль:
-```
-optimization: {
-    minimize: true,
-    minimizer: [new CssMinimizerPlugin({}) , new TerserWebpackPlugin({})],
-},
 ```
 
 ### Установка json-server
@@ -178,14 +150,6 @@ optimization: {
 ```
 Запустим наш сервер: `json-server --watch database.json`  
 
-Если будет ошибка безопасности, нужно разрешить в Windows выполнение скриптов PowerShell:  
-Для этого открываем консоль PowerShell от имени администратора  
-Проверка: `Get-ExecutionPolicy` // ответ Restricted (Запрещено)  
-Отменяем: `Set-ExecutionPolicy unrestricted`  
-Проверка: `Get-ExecutionPolicy` // ответ Unrestricted (Разрешено)  
-Запретить: `Set-ExecutionPolicy Restricted`  
-Затем в настройках Windows 11 Конфиденциальность и защита - Для разработчиков - PowerShell применить флажок, 
-разрешающий выполнение сценариев
 
 ### Установка линтера
 Установим: `npm i eslint --save-dev`  
@@ -235,15 +199,3 @@ optimization: {
 Запуск сборки с конфигом prod командой из packade.json: `npm run start:prod`  
 Запуск сборки с конфигом dev командой из packade.json: `npm run start:dev`  
 Запуск линтеров eslint и stylelint: `npm run lint`  
-
-
-
-
-
-[//]: # (# Text // как <h1> ### Text // как <h3>)
-[//]: # (Два пробела в конце строки - перенос строки)
-[//]: # (1. 2. 3. // авт. создают нумерованный список)
-[//]: # (**Text** // <b>)
-[//]: # (`Text` // Выделить жетым как одну строку кода)
-[//]: # (```Text``` // <code> - блок кода)
-[//]: # (https://github.com/sandino/Markdown-Cheatsheet.git)
